@@ -1,0 +1,6 @@
+<h1>Buffer Links</h1>
+<ul>
+  <% @updates['updates'].each do |update| -%>
+  <%= updateLink(update['text']) %>
+  <% end -%>
+</ul>
