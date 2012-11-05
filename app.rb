@@ -21,7 +21,7 @@ end
 get '/' do
   buffer = Buffer::Client.new settings.BUFFER_ACCESS_TOKEN
   profiles = buffer.get 'profiles'
-  @updates = buffer.api :get, "profiles/#{profiles[0]['id']}/updates/sent.json?since=#{1.1.weeks.ago.to_i}&count=100"
+  @updates = buffer.api :get, "profiles/#{profiles[0]['id']}/updates/sent.json?since=#{8.days.ago.to_i}&count=100"
   @updates['updates'].sort! { |a,b| a['due_at'] <=> b['due_at'] }
 
   erb :list, :trim => '-'
